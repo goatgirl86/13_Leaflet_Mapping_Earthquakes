@@ -24,7 +24,7 @@ Using the “All Earthquakes in Past 7 Days” map  from Modules,
 
 ## Results
 
-![image](https://user-images.githubusercontent.com/92705556/159132321-bd2b0d8b-3d01-4638-b174-906dd9e745a2.png)
+![image](https://user-images.githubusercontent.com/92705556/159133854-c75fa49e-fe15-4592-a46e-bda6afbc046a.png)
 
  
 ### Summary of Website Customization
