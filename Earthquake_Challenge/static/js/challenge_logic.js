@@ -286,11 +286,6 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geoj
     // Finally, we our legend to the map.
     legend2.addTo(map);
   
-  // 5. Change the color function to use three colors for the major earthquakes based on the magnitude of the earthquake.
-  
-  
-  // 6. Use the function that determines the radius of the earthquake marker based on its magnitude.
-  
 })})});
 
 L.Control.textbox = L.Control.extend({
