@@ -1,3 +1,4 @@
+
 // Add console.log to check to see if our code is working.
 console.log("working");
 
@@ -122,13 +123,14 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geoj
 
   // Here we create a legend control object.
 let legend = L.control({
-  position: "bottomright"
+  position: "bottomright",
 });
 
 // Then add all the details for the legend
 legend.onAdd = function() {
   let div = L.DomUtil.create("div", "info legend");
 
+  labels = ['<strong> ALL EARTHQUAKES </strong>'];
   const magnitudes = [0, 1, 2, 3, 4, 5];
   const colors = [
     "#98ee00",
@@ -139,6 +141,8 @@ legend.onAdd = function() {
     "#ea2c2c"
   ];
 
+  div.innerHTML += labels;
+  div.innerHTML += "<br>";
 // Looping through our intervals to generate a label with a colored square for each interval.
   for (var i = 0; i < magnitudes.length; i++) {
     console.log(colors[i]);
@@ -174,24 +178,19 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
 
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data, {
-    	// We turn each feature into a circleMarker on the map.
-    	pointToLayer: function(feature, latlng) {
-      		console.log(data);
-      		return L.circleMarker(latlng);
-        },
       // We set the style for each circleMarker using our styleInfo function.
     style: styleInfo,
      // We create a popup for each circleMarker to display the magnitude and location of the earthquake
      //  after the marker has been created and styled.
      onEachFeature: function(feature, layer) {
-      layer.bindPopup("Magnitude: " + feature.properties.mag + "<br>Location: " + feature.properties.place);
+      layer.bindPopup("Tectonic Plate: " + feature.properties.Name);
     }
   }).addTo(tectonicPlates);
 
   // Then we add the earthquake layer to our map.
   tectonicPlates.addTo(map);
-  
-/// Retrieve the tectonic plates GeoJSON data.
+
+    /// Retrieve the tectonic plates GeoJSON data.
 d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson").then(function(data) {
 
   // 4. Use the same style as the earthquake data.
@@ -265,13 +264,17 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geoj
   legend2.onAdd = function() {
     let div = L.DomUtil.create("div", "info legend");
   
-    const magnitudes = [0, 5, 6];
+    labels = ['<strong> MAJOR QUAKES (4.5) </strong>'];
+    const magnitudes = [4.5, 5, 6];
     const colors = [
       "#F84698",
       "#46E1D4",
       "#8F3A84",
     ];
   
+    div.innerHTML += labels;
+    div.innerHTML += "<br>";
+
   // Looping through our intervals to generate a label with a colored square for each interval.
     for (var i = 0; i < magnitudes.length; i++) {
       console.log(colors[i]);
@@ -292,3 +295,18 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geoj
   
 })})});
 
+L.Control.textbox = L.Control.extend({
+  onAdd: function(map) {
+    
+  var text = L.DomUtil.create('div');
+  text.id = "info_text";
+  text.innerHTML = "<h1 style=font-size:30px;font-family:fantasy;>Earthquakes in the Last 7 Days</h1>"
+  return text;
+  },
+
+  onRemove: function(map) {
+    // Nothing to do here
+  }
+});
+L.control.textbox = function(opts) { return new L.Control.textbox(opts);}
+L.control.textbox({ position: 'topleft' }).addTo(map);
