@@ -168,7 +168,7 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
       // opacity: 1,
       // fillOpacity: 1,
       // fillColor: getColor(feature.properties.mag),
-      color: "#000080",
+      color: "#d600d6",
       // radius: getRadius(feature.properties.mag),
       stroke: true,
       weight: 2
@@ -229,7 +229,7 @@ d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geoj
     if (magnitude > 5) {
       return magnitude * 4;
     }
-    }
+
     return magnitude * 2;
   }
 
