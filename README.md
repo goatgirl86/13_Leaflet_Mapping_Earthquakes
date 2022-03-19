@@ -24,7 +24,7 @@ Using the “All Earthquakes in Past 7 Days” map  from Modules,
 
 ## Results
 
-![image](https://user-images.githubusercontent.com/92705556/159132321-bd2b0d8b-3d01-4638-b174-906dd9e745a2.png)
+![image](https://user-images.githubusercontent.com/92705556/159134112-54426958-5ce3-438c-b384-5d948bd0167b.png)
 
  
 ### Summary of Website Customization
@@ -34,3 +34,4 @@ Using the “All Earthquakes in Past 7 Days” map  from Modules,
 -	Added Legend Titles
 -	Changed colors and sizes of Major Quakes circles
 -	Added “Light” Layer
+-	Changed the zoom and center of the map
