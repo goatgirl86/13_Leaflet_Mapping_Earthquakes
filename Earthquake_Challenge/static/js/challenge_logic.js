@@ -157,7 +157,7 @@ legend.onAdd = function() {
   legend.addTo(map);
 
 
-// Retrieve the tectonic plates GeoJSON data.
+// Retrieve the tectonic plates data.
 d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(data) {
 
 // This function returns the style data for each of the earthquakes we plot on
@@ -168,7 +168,7 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
       // opacity: 1,
       // fillOpacity: 1,
       // fillColor: getColor(feature.properties.mag),
-      color: "black",
+      color: "#000080",
       // radius: getRadius(feature.properties.mag),
       stroke: true,
       weight: 2
@@ -300,7 +300,7 @@ L.Control.textbox = L.Control.extend({
     
   var text = L.DomUtil.create('div');
   text.id = "info_text";
-  text.innerHTML = "<h1 style=font-size:30px;font-family:fantasy;>Earthquakes in the Last 7 Days</h1>"
+  text.innerHTML = "<h1 style=font-size:30px;font-family:fantasy;>Earthquakes in the Past 7 Days</h1>"
   return text;
   },
 
