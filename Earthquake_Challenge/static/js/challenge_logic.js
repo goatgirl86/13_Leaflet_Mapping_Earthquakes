@@ -37,14 +37,14 @@ let baseMaps = {
   "Light": light,
 };
 
-// 1. Add layer groups for the tectonic plate data.
+// Add layer groups for the data.
 let allEarthquakes = new L.LayerGroup();
 let tectonicPlates = new L.LayerGroup();
 let majorQuakes = new L.LayerGroup();
 
 
 
-// 2. Add overlays object.
+// Add overlays object.
 let overlays = {
   "Earthquakes": allEarthquakes,
   "Tectonic Plates": tectonicPlates,
@@ -156,7 +156,7 @@ legend.onAdd = function() {
   // Finally, we our legend to the map.
   legend.addTo(map);
 
-
+// DELIVERABLE 1
 // Retrieve the tectonic plates data.
 d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json").then(function(data) {
 
@@ -168,7 +168,6 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
       weight: 2
     }
   };
-
 
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data, {
@@ -183,6 +182,7 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
   // Then we add the tectonic plate layer to our map.
   tectonicPlates.addTo(map);
 
+// DELIVERABLE 2
     /// Retrieve the major earthquakes GeoJSON data.
   d3.json("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_week.geojson").then(function(data) {
 
@@ -225,7 +225,6 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
 
     return magnitude * 2;
   }
-
 
   // Creating a GeoJSON layer with the retrieved data.
   L.geoJson(data, {
@@ -281,6 +280,9 @@ d3.json("https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/
   
 })})});
 
+
+//EXTRA 
+// Add title on map.
 L.Control.textbox = L.Control.extend({
   onAdd: function(map) {
     
@@ -291,7 +293,6 @@ L.Control.textbox = L.Control.extend({
   },
 
   onRemove: function(map) {
-    // Nothing to do here
   }
 });
 L.control.textbox = function(opts) { return new L.Control.textbox(opts);}
