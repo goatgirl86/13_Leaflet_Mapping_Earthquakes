@@ -34,4 +34,4 @@ Using the “All Earthquakes in Past 7 Days” map  from Modules,
 -	Added Legend Titles
 -	Changed colors and sizes of Major Quakes circles
 -	Added “Light” Layer
--	-	Changed the zoom and center of the map
+-	Changed the zoom and center of the map
